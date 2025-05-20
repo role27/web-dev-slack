@@ -1,0 +1,38 @@
+* {
+}
+
+body {
+  background: rgba(109, 76, 61, 0.842);
+}
+
+header {
+  border: 2px solid white;
+  background: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav a {
+  color: black;
+  font-size: 10px;
+}
+
+#section1 {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 200px;
+}
+
+#section1 p {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  margin: 10px;
+}
