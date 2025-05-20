@@ -21,17 +21,59 @@ header nav a {
 }
 
 #section1 {
-  display: block;
-  font-size: 1.2rem;
+  font-weight: bold;
+  font-size: 20px;
   color: white;
   text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 #section1 p {
-  font-size: 10px;
+  font-size: small;
+  color: white;
+  text-align: center;
+  margin: 10px;
+}
+
+#section2 {
+  background-color: brown;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#section2 p {
+  font-size: small;
+  color: white;
+  text-align: center;
+  margin: 10px;
+}
+
+#section3 {
+  background-color: maroon;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#section3 p {
+  font-size: small;
   color: white;
   text-align: center;
   margin: 10px;
