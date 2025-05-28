@@ -10,19 +10,17 @@ function printText() {
 function printInputValue() {
   const result2 = document.querySelector("#result2");
   const customer = document.querySelector("#customer");
-   //input 값(customer)을 가지고 오기
+  //input 값(customer)을 가지고 오기
   console.log(customer.value);
   // 가지고 와서 result2에 출력
-  result2.textContent=customer.value;
+  result2.textContent = customer.value;
 }
-
 
 // 3번 문제
 function changeColor() {
   const divTest = document.querySelector(".div-test");
   divTest.style.backgroundColor = "yellow";
 }
-
 
 // 4번 문제
 function stringLength() {
@@ -71,57 +69,51 @@ function stringSplit() {
 function arrayTest() {
   const preview = document.querySelector("#preview");
   const remove = document.querySelector("#remove");
-  const add =document.querySelector("#add");
+  const add = document.querySelector("#add");
 
   console.log(preview.textContent.split(" "));
   const preArr = preview.textContent.split(" ");
-  for(let i = 0; i <preArr.length; i++){
+  for (let i = 0; i < preArr.length; i++) {
     //이미 가지고 있는 값에서 내가 삭제할 값이 일치하면 배열에서 제거
-    if(preArr[i]===remove.value){
-      preArr.splice(i,1);
+    if (preArr[i] === remove.value) {
+      preArr.splice(i, 1);
     }
     preArr.push(add.value);
   }
-console.log(preArr.join(" "));
-preview.textContent=preArr.join(" ");
+  console.log(preArr.join(" "));
+  preview.textContent = preArr.join(" ");
 }
 
 // 7번 문제 : prompt로  이름, 나이, 주소 순으로 입력받아서 출력
-const names=document.querySelectorAll(".name");
+const names = document.querySelectorAll(".name");
 const ages = document.querySelectorAll(".age");
 const addr = document.querySelectorAll(".addr");
 function addStudent() {
-console.log(names);
-for(let i = 0 ; i < 3; i++){
-  const name =prompt(`${i}번째 학생 이름`);
-  const age = prompt(`${i}번째 나이`);
-  const add = prompt(`${i}번째 주소`);
-  names[i].textContent=name;
-  ages[i].textContent=age;
-  addr[i].textContent=add;
-}
-
-
+  console.log(names);
+  for (let i = 0; i < 3; i++) {
+    const name = prompt(`${i}번째 학생 이름`);
+    const age = prompt(`${i}번째 나이`);
+    const add = prompt(`${i}번째 주소`);
+    names[i].textContent = name;
+    ages[i].textContent = age;
+    addr[i].textContent = add;
   }
+}
 // 8번
 function addItem() {
-const list = document.querySelector("#list");
-const li = document.createElement("li");
-li.textContent="테스트";
-list.appendChild(li);
-
+  const list = document.querySelector("#list");
+  const li = document.createElement("li");
+  li.textContent = "테스트";
+  list.appendChild(li);
 }
 
-function removeItem(){
+function removeItem() {
   console.log(list.childNodes);
   //list.removeChild(list.childNodes[0]);
-const li = document.querySelector("#list li");
-console.log(li);
-li.remove();
+  const li = document.querySelector("#list li");
+  console.log(li);
+  li.remove();
 }
-
-
-
 
 // 9번
 function toggleClass() {
@@ -142,11 +134,6 @@ function addToCart() {
   total.innerHTML = sum;
   console.log(sum);
 
-  item.value="";
-  price.value="";
-
-
-
-
-
+  item.value = "";
+  price.value = "";
 }
