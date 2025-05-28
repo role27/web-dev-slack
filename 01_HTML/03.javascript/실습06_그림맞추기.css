@@ -3,11 +3,8 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+      text-align: center;
+      margin-top: 50px;
 }
 
 h1 {
@@ -29,9 +26,23 @@ h2 {
   border-radius: 50%;
 }
 
-section button {
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  font-size: 1rem;
+#btn1, #btn2{
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bolder;
 }
+
+#btn1 {
+    background-color: coral;
+    color: navy
+  }
+
+  #btn2 {
+    background-color: navy;
+    color: coral;
+  }
+

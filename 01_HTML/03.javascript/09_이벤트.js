@@ -136,12 +136,11 @@ window.addEventListener("DOMContentLoaded", () => {
   // 2. 부모인 컨테이너에 이벤트 걸기
   const container = document.querySelector(".container");
   const removeHandler = (e) => {
-    console.log("target, e.target"); // 내가 클릭한 이미지
+    console.log("target", e.target); // 내가 클릭한 이미지
     console.log("current", e.currentTarget); // 이벤트 걸린 본인
-    if(e.target ! == e.currentTarget){
-        e.target.style.display = "none";
-
+    if (e.target !== e.currentTarget) {
+      e.target.style.display = "none";
     }
   };
-  container.addEventListener("Click", removeHandler);
+  container.addEventListener("click", removeHandler);
 });
