@@ -1,45 +1,38 @@
 body {
+  display: flex;
   text-align: center;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  line-height: 100px;
+  margin: 0px;
 }
 
-h1 {
-  font-weight: bold;
-  margin-bottom: 50px;
-}
-
-h3 {
-  font-size: 1rem;
-}
-
-h2 {
-  font-style: italic;
-}
-
-#container img {
+img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
 }
 
-#btn1,
-#btn2 {
+section button {
   padding: 12px 24px;
-  margin: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
-}
-
-#btn1 {
   background-color: coral;
   color: navy;
 }
 
-#btn2 {
+button:last-child {
   background-color: navy;
   color: coral;
+}
+
+h2 {
+  font-style: italic;
+  visibility: hidden;
 }

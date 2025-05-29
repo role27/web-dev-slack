@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습07_회원가입</title>
+    <link rel="stylesheet" href="실습07_회원가입.css" />
+  </head>
+
+  <body>
+    <!-- 아닐경우 red, 맞으면 green, 비밀번호 특수문자, 이름은 한글만, 모든 조건 맞았을때 가입가능 -->
+
+    <h1>회원가입</h1>
+
+    <section1>
+      <!-- 아이디 -->
+      <input type="text" , id="id1" placeholder="아이디를 입력해주세요" />
+      <p id="result"></p>
+      <p>영문자로 시작하고 영문자와 숫자, 조합으로 4~12자 이내</p>
+
+      <script>
+        id1.addEventListener("input", (e) => {
+          let regExp = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
+          if (regExp.test(e.target.value)) {
+            console.log("가능");
+            result.innerHTML = "OK!";
+            result.style.color = "green";
+          } else {
+            console.log("불가");
+            result.innerHTML = "NO!";
+            result.style.color = "red";
+          }
+        });
+      </script>
+
+      <!-- 비밀번호 -->
+      <input type="password" id="pw" placeholder="비밀번호를 입력해주세요" />
+      <p id="result2"></p>
+      <p>영문자,숫자,특수문자 조합으로 8~15자 이내</p>
+      <script>
+        pw.addEventListener("input", (e) => {
+          let regExp =
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+          if (regExp.test(e.target.value)) {
+            console.log("가능");
+            result2.innerHTML = "OK!";
+            result2.style.color = "green";
+          } else {
+            console.log("불가");
+            result2.innerHTML = "NO!";
+            result2.style.color = "red";
+          }
+        });
+      </script>
+
+      <!-- 비밀번호 확인 -->
+      <input
+        type="password"
+        id="pw2"
+        placeholder="비밀번호를 다시 한 번 입력해주세요"
+      />
+      <p id="result3"></p>
+      <p>위 비밀번호와 동일하게</p>
+
+      <script>
+        pw2.addEventListener("input", (e) => {
+          let regExp =
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+
+          if (regExp.test(e.target.value)) {
+            console.log("가능");
+            result3.innerHTML = "OK!";
+            result3.style.color = "green";
+          } else {
+            console.log("불가");
+            result3.innerHTML = "NO!";
+            result3.style.color = "red";
+          }
+        });
+      </script>
+
+      <!-- 이름  -->
+      <input type="text" id="name" placeholder="이름을 입력해주세요" />
+      <p id="result4"></p>
+      <p>한글 2자 이상</p>
+      <!-- 이름: /^[가-힣]{2,}$/; -->
+
+      <!-- 이메일 -->
+      <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+      <p id="result5"></p>
+      <p>이메일 형식</p>
+      <!-- 이메일: /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/; -->
+
+      <!-- 전화번호 -->
+      <input type="tel" id="number" placeholder="전화번호를 입력해주세요" />
+      <p id="result6"></p>
+      <p>전화번호 형식</p>
+      <!-- 전화번호: /^010-\d{4}-\d{4}$/; -->
+    </section1>
+
+    <section2>
+      <button>회원가입</button>
+      <button>취소</button>
+    </section2>
+  </body>
+</html>

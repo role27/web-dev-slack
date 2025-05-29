@@ -1,8 +1,4 @@
-const imageList = [
-  "assets/spy1.jpg",
-  "assets/spy2.jpg",
-  "assets/spy3.jpg"
-];
+const imageList = ["assets/spy1.jpg", "assets/spy2.jpg", "assets/spy3.jpg"];
 
 // 이미지 태그 요소 가져오기
 const images = document.querySelectorAll("#container img");
@@ -11,15 +7,13 @@ const message = document.querySelector("h2");
 let clickCounter = 0; // 클릭 횟수 저장 변수
 
 // 메시지 숨기기
-  message.style.display = "none";
+message.style.display = "none";
 
 // 버튼 클릭 이벤트 함수
 window.Startbtn = function () {
   let selectedImages = [];
-  
+
   clickCounter++; // 클릭할 때마다 증가
-
-
 
   document.getElementById("clickCount").textContent = clickCounter;
 
@@ -50,4 +44,3 @@ window.Restartbtn = function () {
   // 메시지 숨기기
   message.style.display = "none";
 };
-
