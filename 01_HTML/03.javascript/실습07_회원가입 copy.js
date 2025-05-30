@@ -1,92 +1,167 @@
-function submitForm() {
-  // 요소 선택
-  const usernameInput = document.querySelector("#username");
-  const passwordInput = document.querySelector("#password");
-  const confirmPasswordInput = document.querySelector("#confirmPassword");
-  const nameInput = document.querySelector("#name");
-  const emailInput = document.querySelector("#email");
-  const phoneInput = document.querySelector("#phone");
+const signup = document.querySelector("#signup");
+let check1 = false; // userId
+let check2 = false; //password
+let check3 = false; //passwordCheck
+let check4 = false; //userName
+let check5 = false; // email
+let check6 = false; // phone
 
-  const result1 = document.querySelector("#result1");
-  const result2 = document.querySelector("#result2");
-  const result3 = document.querySelector("#result3");
-  const result4 = document.querySelector("#result4");
-  const result5 = document.querySelector("#result5");
-  const result6 = document.querySelector("#result6");
-
-  // 값 추출
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-  const confirmPassword = confirmPasswordInput.value.trim();
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const phone = phoneInput.value.trim();
-
-  // result1에 아이디 값 표시
-  result1.textContent = username;
-
-  // 아이디 유효성 검사
-  const usernameRegex = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
-  if (!usernameRegex.test(username)) {
-    result1.textContent += " ❌ 아이디는 영문자로 시작하고 4~12자여야 합니다.";
-    return;
+// 아이디
+const userId = document.querySelector("#userId");
+const userSpan = document.querySelector("#userId+Span");
+const userReExp = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
+userId.addEventListener("input", (e) => {
+  if (userReExp.test(e.target.value)) {
+    userSpan.innerHTML = "OK!";
+    userSpan.style.color = "green";
+    check1 = true;
+  } else if (e.target.value === "") {
+    userSpan.innerHTML = "영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내";
+    userSpan.style.color = "black";
+    check1 = false;
   } else {
-    result1.textContent += " ✅ 사용 가능한 아이디입니다.";
+    userSpan.innerHTML = "영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내";
+    userSpan.style.color = "red";
+    check1 = false;
   }
 
-  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,15}$/;
-  if (!passwordRegex.test(password)) {
-    result2.textContent = "❌ 비밀번호는 영문자, 숫자, 특수문자 포함 8~15자여야 합니다.";
-    return;
+  // if (check1 && check2 && check3 && check4 && check5 && check6) {
+  //   signup.disabled = false;
+  // }
+
+  signup.disabled = !(check1 && check2 && check3 && check4 && check5 && check6);
+});
+
+//비밀번호
+const password = document.querySelector("#password");
+const passwordSpan = document.querySelector("#password+span");
+const passwordCheck = document.querySelector("#passwordCheck");
+const passwordCheckSpan = document.querySelector("#passwordCheck+span");
+const passRegExp =
+  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+password.addEventListener("input", (e) => {
+  if (passRegExp.test(e.target.value)) {
+    passwordSpan.innerHTML = "OK!";
+    passwordSpan.style.color = "green";
+    check2 = true;
+  } else if (e.target.value === "") {
+    passwordSpan.innerHTML = "영문자, 숫자, 특수문자 조합으로 8~15자 이내";
+    passwordSpan.style.color = "black";
+    check2 = false;
   } else {
-    result2.textContent = "✅ 올바른 비밀번호 형식입니다.";
+    passwordSpan.innerHTML = "영문자, 숫자, 특수문자 조합으로 8~15자 이내";
+    passwordSpan.style.color = "red";
+    check2 = false;
   }
 
-  if (password !== confirmPassword) {
-    result3.textContent = "❌ 비밀번호가 일치하지 않습니다.";
-    return;
+  if (passwordCheck.value == e.target.value) {
+    if (passwordCheck.value === e.target.value) {
+      passwordCheckSpan.innerHTML = "OK";
+      passwordCheckSpan.style.color = "green";
+      check3 = true;
+    } else {
+      passwordCheckSpan.innerHTML = "위 비밀번호와 동일하게";
+      passwordCheckSpan.style.color = "red";
+    }
+    check3 = false;
+  }
+});
+
+signup.disabled = !(check1 && check2 && check3 && check4 && check5 && check6);
+
+// 비밀번호 확인
+passwordCheck.addEventListener("input", (e) => {
+  if (passRegExp.test(password.value) && password.value === e.target.value) {
+    passwordCheckSpan.innerHTML = "OK!";
+    passwordCheckSpan.style.color = "green";
+    check3 = true;
+  } else if (e.target.value === "") {
+    passwordCheckSpan.innerHTML = "위 비밀번호와 동일하게";
+    passwordCheckSpan.style.color = "black";
+    check3 = false;
   } else {
-    result3.textContent = "✅ 비밀번호가 일치합니다.";
+    passwordCheckSpan.innerHTML = "위 비밀번호와 동일하게";
+    passwordCheckSpan.style.color = "red";
+    check3 = false;
   }
+});
 
-  const nameRegex = /^[가-힣]{2,}$/;
-  if (!nameRegex.test(name)) {
-    result4.textContent = "❌ 이름은 한글 2자 이상이어야 합니다.";
-    return;
+//이름
+const userName = document.querySelector("#userName");
+const userNameSpan = document.querySelector("#userName+Span");
+const userNameReExp = /^[가-힣]{2,}$/;
+userName.addEventListener("input", (e) => {
+  if (userNameReExp.test(e.target.value)) {
+    userNameSpan.innerHTML = "OK!";
+    userNameSpan.style.color = "green";
+    check4 = true;
+  } else if (e.target.value === "") {
+    userNameSpan.innerHTML = "한글 2자 이상";
+    userNameSpan.style.color = "black";
+    check4 = false;
   } else {
-    result4.textContent = "✅ 올바른 이름입니다.";
+    userNameSpan.innerHTML = "한글 2자 이상";
+    userNameSpan.style.color = "red";
+    check4 = false;
   }
+});
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    result5.textContent = "❌ 이메일 형식이 올바르지 않습니다.";
-    return;
+signup.disabled = !(check1 && check2 && check3 && check4 && check5 && check6);
+
+//이메일
+const email = document.querySelector("#email");
+const emailSpan = document.querySelector("#email+Span");
+const emailReExp = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+email.addEventListener("input", (e) => {
+  if (emailReExp.test(e.target.value)) {
+    emailSpan.innerHTML = "OK!";
+    emailSpan.style.color = "green";
+    check5 = true;
+  } else if (e.target.value === "") {
+    emailSpan.innerHTML = "이메일형식";
+    emailSpan.style.color = "black";
+    check5 = false;
   } else {
-    result5.textContent = "✅ 유효한 이메일입니다.";
+    emailSpan.innerHTML = "이메일형식";
+    emailSpan.style.color = "red";
+    check5 = false;
   }
+});
 
-  const phoneRegex = /^\d{2,3}-\d{3,4}-\d{4}$/;
-  if (!phoneRegex.test(phone)) {
-    result6.textContent = "❌ 전화번호 형식이 올바르지 않습니다. (예: 010-1234-5678)";
-    return;
+signup.disabled = !(check1 && check2 && check3 && check4 && check5 && check6);
+
+//전화번호
+const phone = document.querySelector("#phone");
+const phoneSpan = document.querySelector("#phone+Span");
+const phoneReExp = /^010-\d{4}-\d{4}$/;
+phone.addEventListener("input", (e) => {
+  if (phoneReExp.test(e.target.value)) {
+    phoneSpan.innerHTML = "OK!";
+    phoneSpan.style.color = "green";
+    check6 = true;
+  } else if (e.target.value === "") {
+    phoneSpan.innerHTML = "전화번호 형식";
+    phoneSpan.style.color = "black";
+    check6 = false;
   } else {
-    result6.textContent = "✅ 유효한 전화번호입니다.";
+    phoneSpan.innerHTML = "전화번호 형식";
+    phoneSpan.style.color = "red";
+    check6 = false;
   }
+});
 
-  alert("🎉 회원가입이 완료되었습니다!");
-}
-
-function resetForm() {
-  // input 요소 초기화
-  document.querySelector("#username").value = "";
-  document.querySelector("#password").value = "";
-  document.querySelector("#confirmPassword").value = "";
-  document.querySelector("#name").value = "";
-  document.querySelector("#email").value = "";
-  document.querySelector("#phone").value = "";
-
-  // 결과 메시지 초기화
-  for (let i = 1; i <= 6; i++) {
-    document.querySelector(`#result${i}`).textContent = "";
-  }
-}
+const cancel = document.querySelector("#cancel");
+cancel.addEventListener("click", () => {
+  userSpan.innerHTML = "영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내";
+  userSpan.style.color = "black";
+  passwordSpan.innerHTML = "영문자, 숫자, 특수문자 조합으로 8~15자 이내";
+  passwordSpan.style.color = "black";
+  passwordCheckSpan.innerHTML = "위 비밀번호와 동일하게";
+  passwordCheckSpan.style.color = "black";
+  userNameSpan.innerHTML = "한글 2자 이상";
+  userNameSpan.style.color = "black";
+  emailSpan.innerHTML = "이메일형식";
+  emailSpan.style.color = "black";
+  phoneSpan.innerHTML = "전화번호 형식";
+  phoneSpan.style.color = "black";
+});

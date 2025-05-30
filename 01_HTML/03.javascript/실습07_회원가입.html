@@ -8,41 +8,46 @@
   </head>
 
   <body>
-  
     <h1>회원가입</h1>
 
-  <div class="container">
+    <div class="container">
+      <input type="text" id="username" placeholder="아이디를 입력해주세요" />
+      <p id="result1"></p>
+      <p>영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내</p>
 
-  <input type="text" id="username" placeholder="아이디를 입력해주세요">
-  <p id="result1"></p>
-  <p>영문자로 시작하고 영문자와 숫자 조합으로 4~12자 이내</p>
+      <input
+        type="password"
+        id="password"
+        placeholder="비밀번호를 입력해주세요"
+      />
+      <p id="result2"></p>
+      <p>영문자, 숫자, 특수문자 조합으로 8~15자 이내</p>
 
-  <input type="password" id="password" placeholder="비밀번호를 입력해주세요">
-   <p id="result2"></p>
-    <p>영문자, 숫자, 특수문자 조합으로 8~15자 이내</p>
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="비밀번호를 다시 한 번 입력해주세요"
+      />
+      <p id="result3"></p>
+      <p>위 비밀번호와 동일하게</p>
 
-    <input type="password" id="confirmPassword" placeholder="비밀번호를 다시 한 번 입력해주세요">
-     <p id="result3"></p>
-    <p>위 비밀번호와 동일하게</p>
+      <input type="text" id="name1" placeholder="이름을 입력해주세요" />
+      <p id="result4"></p>
+      <p>한글 2자 이상</p>
 
-    <input type="text" id="name1" placeholder="이름을 입력해주세요">
-     <p id="result4"></p>
-    <p>한글 2자 이상</p>
+      <input type="email" id="email" placeholder="이메일을 입력해주세요" />
+      <p id="result5"></p>
+      <p>이메일 형식</p>
 
-    <input type="email" id="email" placeholder="이메일을 입력해주세요">
-     <p id="result5"></p>
-    <p>이메일 형식</p>
+      <input type="tel" id="phone" placeholder="전화번호를 입력해주세요" />
+      <p id="result6"></p>
+      <p>전화번호 형식</p>
 
-    <input type="tel" id="phone" placeholder="전화번호를 입력해주세요">
-     <p id="result6"></p>
-    <p>전화번호 형식</p>
-
-
-    <div class="buttons">
-      <button class="submit" onclick="submitForm()">회원가입</button>
-      <button class="cancel" onclick="resetForm()">취소</button>
- </div>
-  </div>
-  <script src = "실습07_회원가입.js"></script>
+      <div>
+        <button type="submit" id="signup" disabled>회원가입</button>
+        <button type="reset" id="cancel">취소</button>
+      </div>
+    </div>
+    <script src="실습07_회원가입.js"></script>
   </body>
 </html>
