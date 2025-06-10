@@ -49,6 +49,27 @@ MySQL
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE USER_INFO(
   USER_NO INT PRIMARY KEY AUTO_INCREMENT,
   ID VARCHAR(50) UNIQUE NOT NULL,
