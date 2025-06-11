@@ -454,19 +454,61 @@ WHERE DIRECTOR = '봉준호' AND RATING >=3.0;
 
 
 
+SELECT USER_ID, TITLE, RATING, DIRECTOR
+FROM (SELECT USER_ID, TITLE , RATING, DIRECTOR 
+FROM REVIEW
+WHERE DIRECTOR = '봉준호')
+AND RATING >= 3.0;
+
+
+
+
 -- 4. 가장 리뷰 수가 많은 영화 조회
 
-SELECT * FROM REVIEW;
-SELECT * FROM MOVIE;
+SELECT MOVIE_ID, "COMMENT" FROM REVIEW;
+SELECT MOVIE_ID, TITLE FROM MOVIE ORDER BY MOVIE_ID DESC;
 
-SELECT TITLE, "COMMENT"
-FROM REVIEW
-JOIN MOVIE USING(MOVIE_ID);
-GROUP BY MOVIE_ID;
-
-
+-- 조회조건 ROWNUM = 1로 해서 조회 1건만
+SELECT *
+  FROM ( SELECT MOVIE_ID, TITLE, COUNT(*)
+           FROM REVIEW
+           JOIN MOVIE USING(MOVIE_ID)
+          GROUP BY MOVIE_ID, TITLE
+          ORDER BY MOVIE_ID DESC
+        )
+WHERE ROWNUM = 1;
+ 
+ -- MAX를 이용해서 조회 1건만
+SELECT R.MOVIE_ID, M.TITLE, COUNT(*) AS REVIEW_COUNT
+FROM MOVIE M
+JOIN REVIEW R ON M.MOVIE_ID = R.MOVIE_ID
+WHERE M.MOVIE_ID = ( SELECT MAX(MOVIE_ID)
+                       FROM ( SELECT MOVIE_ID, COUNT(*)
+                                FROM REVIEW
+                               GROUP BY MOVIE_ID
+                               ORDER BY MOVIE_ID DESC
+                            )
+                   )
+GROUP BY R.MOVIE_ID, M.TITLE
+ORDER BY R.MOVIE_ID DESC;
 
 
 -- 5. 전체 리뷰 평균 평점보다 높은 순으로 3위까지 영화 조회
+
+SELECT *
+  FROM (SELECT *
+          FROM REVIEW
+         WHERE RATING > ( SELECT AVG(RATING)
+                            FROM REVIEW
+                        )
+         ORDER BY RATING DESC
+       )
+WHERE ROWNUM <= 3
+;
+
+
+
+
+
 
 
