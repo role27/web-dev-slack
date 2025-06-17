@@ -9,12 +9,12 @@ public class VariablePractice {
 	public static void main(String[] args) {
 		VariablePractice v = new VariablePractice();
 		v.method1();
-		v.method2();
+     	v.method2();
 		v.method3();
 		v.method4();
-		v.method5();
-		v.method6();
-		v.method7();
+     	v.method5();
+     	v.method6();
+     	v.method7();
 	}
 	
 	/*
@@ -25,6 +25,16 @@ public class VariablePractice {
 	 * 성인 2명과 청소년 3명이 영화를 보려고 할 때 지불해야 할 금액을 계산 후 출력하세요.
 	 * */
 	public void method1() {
+		int adultPrice = 10000;
+		int teenPrice= 7000;
+		
+		int adultCount = 2;
+		int teenCount = 3;
+		
+		int total = (adultPrice * adultCount) + (teenPrice * teenCount);
+		
+		System.out.println("총 금액 : " + total + "원");
+		
 		
 	}
 	
@@ -42,9 +52,14 @@ public class VariablePractice {
 		int y = 7;
 		int z = 9;
 		
-		// 코드 적어주세요!
 		
+		int a = x;
+		x=y;
+		y=z;
+		z=a;
 		
+	
+	
 		System.out.println("x=" + x);
 		System.out.println("y=" + y);
 		System.out.println("z=" + z);
@@ -64,6 +79,16 @@ public class VariablePractice {
 	 * 나누기 몫 : 3
 	 * */
 	public void method3() {
+		System.out.print("정수값1 >>");
+		int num1 = sc.nextInt();
+		System.out.print("정수값2 >>");
+		int num2 = sc.nextInt();
+
+		System.out.println(num1+num2);
+		System.out.println(num1-num2);
+		System.out.println(num1*num2);
+		System.out.println(num1/num2);
+		
 		
 	}
 
@@ -78,6 +103,13 @@ public class VariablePractice {
 	 * 둘레 : 110.4
 	 * */
 	public void method4() {
+		double width = 13.5;	
+		double length = 41.7;
+		
+		
+		System.out.println(width * length);
+		System.out.println((width + length) * 2);
+				
 
 	}
 
@@ -90,6 +122,11 @@ public class VariablePractice {
 	 * 마지막 문자 : e
 	 * */
 	public void method5() {
+		String str = "apple";
+		
+		System.out.println(str.charAt(0));
+		System.out.println(str.charAt(2));
+		System.out.println(str.charAt(str.length() -1));
 
 	}
 
@@ -101,7 +138,17 @@ public class VariablePractice {
 	 * B unicode : 66
 	 * */
 	public void method6() {
-
+		System.out.print("문자 입력>>");
+		char ch = sc.nextLine().charAt(0);
+		char nextChar = (char)(ch + 1);
+		
+		int chCode = (int) ch;
+		int nextCode = (int) nextChar; 
+		
+		System.out.println(ch + " unicode : " + chCode);
+        System.out.println(nextChar + " unicode : " + nextCode);
+		
+	
 	}
 	
 	/*
@@ -114,6 +161,19 @@ public class VariablePractice {
 	 * 평균 : 72.67
 	 * */
 	public void method7() {
+		System.out.print("국어 : >>");
+		int kor = sc.nextInt();
+		System.out.print("영어 :  >>");
+		int eng = sc.nextInt();
+		System.out.print("수학 :  >>");
+		int math = sc.nextInt();
+		
+		int total = kor + eng + math;
+		double avg = total / 3.0;
+		
+		System.out.println("총점 : " + total);
+		System.out.printf("평균 :%.2f" , avg);
+	
 
 	}
 
