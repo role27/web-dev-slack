@@ -38,6 +38,7 @@ public class VariablePractice {
 		
 	}
 	
+	
 	/*
 	 * x=5, y=7, z=9의 값을 직접 변경하지 않고 변수를 사용하여
 	 * 
@@ -79,15 +80,21 @@ public class VariablePractice {
 	 * 나누기 몫 : 3
 	 * */
 	public void method3() {
+		
+		
+		// 코드 정렬 : ctrl+shift+f
+		
 		System.out.print("정수값1 >>");
-		int num1 = sc.nextInt();
+		int num1 = Integer.parseInt(sc.nextLine());
+		//int num1 = sc.nextInt(); 
 		System.out.print("정수값2 >>");
-		int num2 = sc.nextInt();
+		int num2 = Integer.parseInt(sc.nextLine());
+		//int num2 = sc.nextInt();
 
-		System.out.println(num1+num2);
-		System.out.println(num1-num2);
-		System.out.println(num1*num2);
-		System.out.println(num1/num2);
+		System.out.println(num1 + num2);
+		System.out.println(num1 - num2);
+		System.out.println(num1 * num2);
+		System.out.println(num1 / num2);
 		
 		
 	}
@@ -103,13 +110,25 @@ public class VariablePractice {
 	 * 둘레 : 110.4
 	 * */
 	public void method4() {
+		
 		double width = 13.5;	
 		double length = 41.7;
-		
-		
 		System.out.println(width * length);
 		System.out.println((width + length) * 2);
-				
+		
+		
+		//풀이
+		System.out.print("가로: ");
+		double num1 = Double.parseDouble(sc.nextLine());
+		System.out.print("세로: ");
+		double num2 = Double.parseDouble(sc.nextLine());
+		
+		double area = num1*num2;
+		double size = (num1+num2)*2;
+		
+		System.out.printf("면적: %.2f\n", area);
+		System.out.printf("둘레: %.1f",  size);
+		System.out.println("둘레: " + String.format("%.1f", size));
 
 	}
 
@@ -122,13 +141,17 @@ public class VariablePractice {
 	 * 마지막 문자 : e
 	 * */
 	public void method5() {
-		String str = "apple";
 		
+		System.out.print("문자열을 입력하세요 : ");
+		String str = sc.nextLine();		
 		System.out.println(str.charAt(0));
 		System.out.println(str.charAt(2));
 		System.out.println(str.charAt(str.length() -1));
 
 	}
+	
+	
+
 
 	/*
 	 * 문자 하나를 입력 받아 그 문자와 다음 문자의 유니코드를 출력하세요.
@@ -150,6 +173,9 @@ public class VariablePractice {
 		
 	
 	}
+	
+
+	
 	
 	/*
 	 * 국어, 영어, 수학 세 과목의 점수를 입력 받아 총점과 평균을 출력하세요.
@@ -173,6 +199,8 @@ public class VariablePractice {
 		
 		System.out.println("총점 : " + total);
 		System.out.printf("평균 :%.2f" , avg);
+	
+		// System.out.printf("평균 :%.2f" ,((double)total / 3));
 	
 
 	}

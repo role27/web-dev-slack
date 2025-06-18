@@ -39,6 +39,7 @@ public class OperatorPractice {
 		int number = sc.nextInt();
 		
 		System.out.println(number / 100*100);
+		//System.out.println(number-number % 100);
 	}
 		
 	
@@ -74,6 +75,10 @@ public class OperatorPractice {
 		String no = sc.nextLine();
 		char noChar = no.charAt(7);
 		
+		//char no = no.charAt(7);
+//		System.out.println(no == '1' || no == '3' ? "남자" 
+//				              : no == '2' || no == '4' ? "여자" : "잘못입력");
+//		
 		switch(noChar) {
 				case '1' :
 				case '3' :
@@ -97,7 +102,14 @@ public class OperatorPractice {
 		}else {System.out.println("성인");}
 		
 	}
+	
+//	System.out.print("나이 입력>>");
+//	int age = Integer.parseInt(sc.nextLine());
+//	System.out.println(age > 19 ? "성인" : age > 13 ? "청소년" : "어린이");
+	
 
+	
+	
 	//사과의 개수와 바구니의 크기(바구니 1개의 들어가는 사과의 개수)를 입력받아
 	//필요한 바구니의 수를 출력하세요
 	public void method7() {
@@ -120,8 +132,8 @@ public class OperatorPractice {
 		System.out.print("초단위시간 입력>>");
 		int sec = sc.nextInt();
 		
-		int hours = sec/3600;
-		int minutes = (sec%3600) / 60;
+		int hours = sec / 3600;
+		int minutes = (sec % 3600) / 60;
 		int seconds = sec % 60; 
 		
 		System.out.println(hours + "시간" + minutes +"분" + seconds + "초");
