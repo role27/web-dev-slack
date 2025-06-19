@@ -32,6 +32,7 @@ public class ConditionPractice {
     	System.out.print("정수값>>");
     	int num1 = sc.nextInt();
     	
+    	/*
     	if(num1 > 0 && num1 % 2 == 0) {
     		System.out.println("짝수다");
     	}else if (num1 > 0 && num1 % 2 == 1) {
@@ -40,7 +41,37 @@ public class ConditionPractice {
     		System.out.println("양수만 입력하세요");
     	}
     }
-
+*/
+    	
+    /* 중첩 if
+     if(num1 > 0) {
+    	 if(num1 % 2 == 0) {
+    			System.out.println("짝수다");
+    		}else if (num1 % 2 != 0) {
+    			System.out.println("홀수다");
+    		}else {
+    			System.out.println("양수만 입력하세요");
+    		} 
+     }  
+   
+}
+    
+    */
+    	
+    	 if(num1 <= 0) { // 양수가 아닌 것 부터
+    		 System.out.println("양수만 입력하세요");
+    		 } else if(num1 % 2 == 0) {
+        			System.out.println("짝수다");
+        		} else{
+        			System.out.println("홀수다");
+        		}
+    }
+    
+    	
+    	
+    	
+    	
+    
     /*
         A 피자가게는 피자를 두 조각에서 열 조각까지 원하는 조각 수로 잘라준다.
         피자 조각 수와 피자를 먹는 사람의 수를 입력받아 한 사람 당 최소 한 조각 이상 피자를 먹으려면 최소 몇 판의 피자를 시켜야 하는지 출력하세요.
@@ -56,8 +87,19 @@ public class ConditionPractice {
     	System.out.print("피자를 먹는 사람의 수: ");
     	int person = sc.nextInt();
     	
+    	int pizzacnt = person / pizza;
     	
-      if(pizza < 2 || pizza > 10) {
+    	
+    	if (person % pizza !=0) {
+	    	pizzacnt++;
+	    } System.out.println("최소필요한 피자 판 수 : " + pizzacnt);
+   }
+  
+    	
+    	
+    	
+    	
+     /* if(pizza < 2 || pizza > 10) {
      	System.out.println("피자 조각수는 2~10사이여햐 합니다.");
        }else if (person < 1) {
     	   System.out.println("사람 수는 1명 이상이여야 합니다.");
@@ -68,10 +110,11 @@ public class ConditionPractice {
     	    }
               System.out.println("최소필요한 피자 판 수 : " + pizzacnt);
        }
-      
+      */
   	
       
-    }
+      
+    
 
     /*
         국어, 영어, 수학 세 과목의 점수를 입력 받고 합계와 평균을 계산하고 합계와 평균을 이용하여 합격 / 불합격 처리하는 기능을 구현하세요.
@@ -101,13 +144,12 @@ public class ConditionPractice {
 		
 		int total = kor + math + eng;
 		double avg = total / 3.0;
+		//double avg = (double)total / 3;
 		
     	if(kor >=40 && math>=40 && eng>=40 && avg >=60) {
-    		System.out.println("국어: " + kor);
-    		System.out.println("수학: " + math);
-    		System.out.println("영어: " + eng);
             System.out.println("합계: " + total);
             System.out.printf("평균: %.2f\n", avg);
+            //System.out.println("평균: " + String.format("%.1f",avg));
             System.out.println("축하합니다, 합격입니다!");
     	}else {
     		System.out.println("불합격입니다!");
@@ -131,12 +173,17 @@ public class ConditionPractice {
     	
     	if(price >=500000) {
     		discount = 0.20;
+    		//price *= 0.8; // price = price * 0.8
     	}else if (price >=300000) {
     		discount = 0.10;
+    		//price *= 0.9;
     	}else if (price >=100000) {
     		discount = 0.05;
+    		//price *= 0.95;
     	}else {
     		discount = 0.00;
+    		//DecimalFormat df = new DecimalFormat("###,###"); 
+    		//System.out.println(df.format(price));
     	}      
     	
     	
@@ -154,8 +201,9 @@ public class ConditionPractice {
         입력받은 각에 따라 예각일 때 1, 직각일 때 2, 둔각일 때 3, 평각일 때 4를 출력하세요.
      */
     public void method5() {
-    	System.out.print("각도 값 : " );
-    	int num = sc.nextInt();
+    	 System.out.print("각도 값 : " );
+    		int num = sc.nextInt();
+    	
     	
     	if(num < 90) {
     		System.out.println("예각: " + "1");
@@ -168,6 +216,29 @@ public class ConditionPractice {
     	}
     }
 
+    /*
+    public void method5() {
+    System.out.print("각도 값 : " );
+	int num = sc.nextInt();
+	int result = 0;
+	
+	
+    if(num > 0 && num < 90) {
+		result =1;
+	}else if(num == 90) {
+		result =2;
+	}else if(num > 90 && num < 180 ) {
+		result =3;
+	}else if(num == 180)  {
+		result =4;
+	}else {
+		System.out.println(result);
+	}
+}
+    */
+    
+    
+    
     /*
        아이디, 비밀번호를 정해두고 로그인 기능을 작성하세요.
        로그인 성공 시 "로그인 성공", 
@@ -273,31 +344,43 @@ public class ConditionPractice {
     	
         System.out.print("양수값1: ");
     	int num1 = sc.nextInt();
+    	
     	System.out.print("양수값2: ");
     	int num2 = sc.nextInt();
+    	
     	System.out.print("연산자를 입력(+,-,*,/,%) : ");
-    	String op = sc.nextLine();	
+    	char op = sc.nextLine().charAt(0);	
+    
+    	if(num1 <=0 || num2 <=0) {
+    		System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+    	return;
+    	}
+    	
+    	int result = 0;
     	
     	switch(op) {
-    	case "+":
-    		System.out.println(num1 + num2);
+    	case '+':
+    		result = num1 + num2;
     	    break;
-    	case "-":
-    		System.out.println(num1 - num2);
+    	case '-':
+    		result = num1 - num2;
     	    break;
-    	case "*":
-    		System.out.println(num1 * num2);
+    	case '*':
+    		result = num1 * num2;
     	    break;
-    	case "/":
-    		System.out.println(num1 / num2);
+    	case '/':
+    		result = num1 / num2;
     	    break;
-    	case "%":
-    		System.out.println(num1 % num2);
+    	case '%':
+    		result = num1 % num2;
     	    break;
-    	default:
-    	    System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
-    	    }
-    }
+    	    default : System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+        	return;
+    	}
+    	System.out.printf("%d %s %d = %d" , num1, op, num2, result );
+    	}
+    
+    
     
     /*
       아래 예시와 같이 메뉴를 출력하고 메뉴 번호를 누르면 “OO메뉴입니다“를, 종료 번호를 누르면 “프로그램이 종료됩니다.”를 출력하세요
@@ -311,7 +394,7 @@ public class ConditionPractice {
         조회 메뉴입니다.
      */
     public void method9() {
-    	System.out.println("1. 입력 \n2. 수정 \n3. 조회 \n4. 삭제 \n5. 종료");
+    	System.out.println("1. 입력 \n2. 수정 \n3. 조회 \n4. 삭제 \n9. 종료");
     	
     	System.out.print("메뉴 번호를 입력하세요 : ");
     	int num = sc.nextInt();
@@ -401,22 +484,35 @@ public class ConditionPractice {
     	int attendanceScore = sc.nextInt();
     	double aScore = attendanceScore;
     	
+    	System.out.println("===========결과==========");
+    	
     	
     	double result = mScore + fScore +  pScore + aScore;
     	
     
-    	if(result >=70 && attendanceScore >= 20-(20 * 0.3)) {
+    	if(result >=70 && attendanceScore >= 20 * 0.7) {
+    		System.out.println("중간 고사 점수(20): " + mScore);
+    		System.out.println("기말 고사 점수(30): " + fScore);
+    		System.out.println("과제 점수(30): " +  pScore);
+    		System.out.println("출석 점수 (20): " + aScore);
+    		System.out.println("총점 : " + result);
     		System.out.println("PASS");
-    	}else if(result < 70){ 
-    		//FAIL [점수 미달] (총점 61.0)
-    		System.out.println("FAIL [점수 미달] (총점" + result + ")" );
-    	}else if(attendanceScore < 20-(20 * 0.3)) {
-    		System.out.println("FAIL [출석 횟수 부족] (" + attendanceScore + " / 20)" );
-    	}
+    		 
+    	}else { 
+    		if(aScore < 20 * 0.7){ 
+    			System.out.println("FAIL [출석 횟수 부족] (" + attendanceScore + (aScore / 20));
+        	}
+    		if(result < 70){
+    			System.out.println("FAIL [점수 미달] (총점" + result + ")" );
+    			}
+    	
     	else {
     	       System.out.println("FAIL");
     	}
+    		
     	
+    	}
     }
 }
+   
     
