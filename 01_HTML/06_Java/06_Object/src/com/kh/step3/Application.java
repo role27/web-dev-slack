@@ -33,7 +33,8 @@ public class Application {
 	
 		
 		System.out.println("나누기 : " + Calculator.divide(45,4));
-		
+		System.out.println(c.factorial(10));
+		System.out.println(c.factorial2(10));
 	}
 
 }

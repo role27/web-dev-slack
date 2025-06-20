@@ -3,6 +3,10 @@ package com.kh.practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import com.kh.practice.controller.RockPaperScissorController;
+import com.kh.practice.model.RockPaperScissor;
+import com.kh.practice.view.RockPaperScissorView;
+
 class LoopPractice {
 	
 	Scanner sc = new Scanner(System.in);
@@ -10,11 +14,11 @@ class LoopPractice {
 	public static void main(String[] args) {
 
 		LoopPractice l = new LoopPractice();
-		l.method1();
-		l.method2();
-		l.method3();
-		l.method4();
-		l.method5();
+		//l.method1();
+		//l.method2();
+		//l.method3();
+		//l.method4();
+		//l.method5();
 		l.method6();
 		
 	}
@@ -41,11 +45,28 @@ class LoopPractice {
 
     // 1+(-2)+3+(-4)+...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
     public void method2() {
+    	int sum = 0;
+    	int num = 0;
+    	while(sum < 100) {
+    		num++;
+    		if(num % 2 == 0) {
+    			sum -= num;
+    		}else {
+    			sum += num;
+    		}
+    		System.out.println(num);
+    	}
+    	
+    }	
+    	/* if(sum >= 100) {
+    		System.out.println(num);
+    		break;
+    	}
+    	*/
+    		
     	
     	
-    	
-    }
-
+    
     /*
         사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 문자열에 그 문자가 몇 개 있는지 개수를 출력하세요. 
 
@@ -55,8 +76,17 @@ class LoopPractice {
 
     */
     public void method3() {
+    	System.out.print("문자열 입력 : ");
+    	String str = "banana";
+    	char ch = 'a';
+    	for(int i =0; i < str.length(); i++) {
+    		if(ch == str.charAt(i)) {
+    			
+    		}
+    	}
 
     }
+ 
 
     /*
         0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
@@ -69,7 +99,8 @@ class LoopPractice {
         0
      */
     public void method4() {
-
+        
+        
     }
 
     /*
@@ -111,8 +142,10 @@ class LoopPractice {
     */
     public void method6() {
     
+          RockPaperScissorView view = new RockPaperScissorView();
+          view.gameStart();
+    	
     }
 
 }
-
 
