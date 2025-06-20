@@ -35,7 +35,7 @@ public class SnackController {
 	public String sResult() {
 		 return "종류 : " + sModel.getKind()
 				
-
+	}
 	
 	
 	
