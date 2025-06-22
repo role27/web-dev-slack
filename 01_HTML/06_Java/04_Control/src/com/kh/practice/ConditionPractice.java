@@ -9,15 +9,15 @@ public class ConditionPractice {
 	
 	public static void main(String[] args) {
 		ConditionPractice c = new ConditionPractice();
-		//c.method1();
-		//c.method2();
-		//c.method3();
-		//c.method4();
-		//c.method5();
-		//c.method6();
-		//c.method7();
-		//c.method8();
-		//c.method9();
+		c.method1();
+		c.method2();
+	    c.method3();
+		c.method4();
+		c.method5();
+		c.method6();
+		c.method7();
+		c.method8();
+		c.method9();
 		c.method10();
 	}
 
