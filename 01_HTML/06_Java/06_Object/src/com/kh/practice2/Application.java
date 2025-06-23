@@ -1,30 +1,46 @@
 package com.kh.practice2;
 
+import java.util.Scanner;
+
 import com.kh.practice2.controller.SnackController;
-import com.kh.practice2.model.Snack;
+
+
+// POJO (Plain Old Java Object)
 
 public class Application {
 
 	public static void main(String[] args) {
-
-		Snack snack = new Snack();
+		
+		Scanner sc = new Scanner(System.in);
 		SnackController controller = new SnackController();
 		
 		
 		
 		System.out.println("스낵류를 입력하세요");
-		System.out.print("종류 : " + );
-		System.out.print("이름 : " +);
-		System.out.print("맛 : " + );
-		System.out.print("개수 : " + );
-		System.out.print("가격 : " + );
-		System.out.println("저장 완료되었습니다");
-		System.out.println( 종류 + "(" 이름 "-" 맛 ")" + 개수 + "개" + 가격 + "원");
+		
+		System.out.print("종류 : ");
+		String kind = sc.nextLine();
+		
+		System.out.print("이름 : ");
+		String name = sc.nextLine();
+		
+		System.out.print("맛 : ");
+		String flavor = sc.nextLine();
+		
+		System.out.print("개수 : ");
+		int numOf = sc.nextInt();
+		
+		System.out.print("가격 : ");
+		int price = sc.nextInt();
+		
+		System.out.println(controller.saveData(kind, name, flavor, numOf, price));
+		System.out.println((kind + "(" + name + "-" + flavor + ")" + numOf +"개" + price + "원"));
+	
 		
 		
 		
 		
-		
+		 
 		
 	}
 
