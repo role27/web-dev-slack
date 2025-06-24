@@ -1,40 +1,33 @@
 package com.kh.practice2.controller;
 
-import java.util.Arrays;
-
 import com.kh.practice2.model.Snack;
 
 public class SnackController {
 
-	private Snack sModel  = new Snack();
+	private Snack s = new Snack();
+
 	
 	
 	
-	
-	public String sKind() {
-		sModel.setKind(sModel.getKind());
-	}
-	
-	public String sName() {
-		sModel.setName(sModel.getName());
-	}
-	
-	public String sFlavor() {
-		sModel.setFlavor(sModel.getFlavor());
-	}
-	
-	public int snumOf() {
-		sModel.setNumOf(sModel.getNumOf());
-	}
-	
-	public int sPrice() {
-		sModel.setPrice(sModel.getPrice());
+	public String saveData(String kind, String name, String flavor, int numOf, int price) {
+		
+		s.setKind(kind);
+		s.setName(name);
+		s.setFlavor(flavor);
+		s.setNumOf(numOf);
+		s.setPrice(price);
+		return "저장이 완료되었습니다.";
+		
 	}
 	
 	
-	public String sResult() {
-		 return "종류 : " + sModel.getKind()
-				
+	
+	
+		
+	public String confirmData() {
+        return s.toString();
+	    }
+		
 	}
 	
 	
@@ -46,5 +39,4 @@ public class SnackController {
 	
 	
 	
-	
-}
+
