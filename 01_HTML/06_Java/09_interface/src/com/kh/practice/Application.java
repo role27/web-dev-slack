@@ -13,7 +13,7 @@ public class Application {
 	Scanner sc = new Scanner(System.in);
 	UserInfo userinfo = new UserInfo();
 	UserInfoController uc = new UserInfoController();
-
+	
 
 	public static void main(String[] args) {
 
@@ -56,7 +56,7 @@ public class Application {
 	public void insertEmp() {
 		
 		System.out.print("직원 번호 : ");
-		String uesrNo = sc.nextLine();
+		int uesrNo = Integer.parseInt(sc.nextLine());
 
 		System.out.print("직원 아이디 : ");
 		String id = sc.nextLine();
@@ -72,13 +72,12 @@ public class Application {
 
 		System.out.print("추가 정보를 더 입력하시겠습니까?(y/n) : ");
 		String addInfo = sc.nextLine();
+		
+		uc.insertEmp(uesrNo, id, password, email, name, addInfo, null, null, null, null);
 
 		// y일 경우만
+		if (addInfo.equals("y")) {
 		 
-	
-
-		if (addInfo == "y") {
-
 			System.out.print("직원 전화번호 : ");
 			String phone = sc.nextLine();
 
@@ -97,58 +96,73 @@ public class Application {
 			String deptName = sc.nextLine();
 			department.setDeptName(deptName);
 			userinfo.setDapartment(department);
-			
+		}	
 			
 		}
 		
-	}
+	
 
 	// 수정할 데이터를 사용자에게 받는 메서드
 	public void updateEmp() {
 		while(true) {
-		System.out.println("수정하려면 로그인이 필요합니다.");
-		System.out.print("아이디 입력 : ");
-		String id = sc.nextLine();
-		System.out.print("비밀번호 입력 : ");
-		String password = sc.nextLine();
-
-		// 아이디랑 비밀번호가 틀리다면!
-		
-		if(userinfo.getId().equals(id) != userinfo.getPassword().equals(password)) {
-			System.out.println("로그인 실패! 정보 수정할 수 없습니다");	
-			
-			// 아이디와 비밀번호 성공했을시에만!
-		} else {
-			System.out.println("직원의 어떤 정보를 수정하시겠습니까?");
-		}
-		
-			System.out.println("1. 전화 번호");
-			System.out.println("2. 생일");
-			System.out.println("3. 부서");
-			System.out.println("9. 돌아가기");
-			System.out.print("메뉴 번호를 누르세요 : ");
-			int select = Integer.parseInt(sc.nextLine());
-		
-
-		switch (select) {
-		case 1:
-			System.out.print("전화 번호 입력 : ");
-			break;
-		case 2:
-			System.out.print("생일 입력 (예 : 2025-06-23) : ");
-			break;
-		case 3:
-			System.out.print("부서 입력 : ");
-			break;
-		case 9:
-			break;
-		}
+			System.out.println("수정하려면 로그인이 필요합니다.");
+			System.out.print("아이디 입력 : ");
+			String id = sc.nextLine();
+			System.out.print("비밀번호 입력 : ");
+			String password = sc.nextLine();
+	
+			// 아이디랑 비밀번호가 틀리다면!
+		    
+			// 아이디, 비밀번호 체크
+			if(uc.idCheck(id) != "Y" || uc.pwdCheck(password) != "Y") {
+				System.out.println("로그인 실패! 정보 수정할 수 없습니다");	
+				
+				// 아이디와 비밀번호 성공했을시에만!
+			} else {
+				System.out.println("직원의 어떤 정보를 수정하시겠습니까?");
+				
+				System.out.println("1. 전화 번호");
+				System.out.println("2. 생일");
+				System.out.println("3. 부서");
+				System.out.println("9. 돌아가기");
+				System.out.print("메뉴 번호를 누르세요 : ");
+				int select = Integer.parseInt(sc.nextLine());
+				
+				switch (select) {
+				case 1:
+					
+					System.out.print("전화 번호 입력 : ");
+					uc.updatephone(sc.nextLine());
+					System.out.print("전화번호 수정 완료");
+				
+					break;
+				case 2:
+					System.out.print("생일 입력 (예 : 2025-06-23) : ");
+					uc.updatebirthdate(LocalDate.parse(sc.nextLine()));
+					System.out.print("생년월일 수정 완료");
+				
+					
+					break;
+				case 3:
+					System.out.print("부서 입력 : ");
+					String deptName = sc.nextLine();
+					uc.updatedepartment(new Department());
+					System.out.print("부서 수정 완료");
+					
+					break;
+				case 9:
+					break;
+					default :
+						System.out.println("잘못 입력하셨습니다.");
+				}
+			}
 		}
 	}
 	
 
 	// 데이터를 출력하는 메서드
 	public void printEmp() {
+		System.out.println(uc.getEmp());
 
 	}
 }

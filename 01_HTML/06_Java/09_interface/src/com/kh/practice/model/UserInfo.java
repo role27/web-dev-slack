@@ -13,7 +13,7 @@ public class UserInfo {
 	private String addr;
 	private String gender;
 	private LocalDate birthDate;
-	private Department dapartment;
+	private Department department;
 	
 	
 	public UserInfo() {
@@ -21,7 +21,7 @@ public class UserInfo {
 
 
 	public UserInfo(int userNo, String id, String password, String email, String name, String phone, String addr,
-			String gender, LocalDate birthDate, Department dapartment) {
+			String gender, LocalDate birthDate, Department department) {
 		this.userNo = userNo;
 		this.id = id;
 		this.password = password;
@@ -31,7 +31,7 @@ public class UserInfo {
 		this.addr = addr;
 		this.gender = gender;
 		this.birthDate = birthDate;
-		this.dapartment = dapartment;
+		this.department = department;
 	}
 
 
@@ -126,12 +126,12 @@ public class UserInfo {
 
 
 	public Department getDapartment() {
-		return dapartment;
+		return department;
 	}
 
 
-	public void setDapartment(Department dapartment) {
-		this.dapartment = dapartment;
+	public void setDapartment(Department department) {
+		this.department = department;
 	}
 
 
@@ -139,7 +139,7 @@ public class UserInfo {
 	public String toString() {
 		return "UserInfo [userNo=" + userNo + ", id=" + id + ", password=" + password + ", email=" + email + ", name="
 				+ name + ", phone=" + phone + ", addr=" + addr + ", gender=" + gender + ", birthDate=" + birthDate
-				+ ", dapartment=" + dapartment + "]";
+				+ ", department=" + department + "]";
 	}
 	
 	
