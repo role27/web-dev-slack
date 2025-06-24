@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 import com.kh.practice2.controller.SnackController;
 
+<<<<<<< HEAD
+=======
+
+// POJO (Plain Old Java Object)
+>>>>>>> 2c20a0ea90712d710c0c6381dc2a8062558fabc5
 
 public class Application {
 
