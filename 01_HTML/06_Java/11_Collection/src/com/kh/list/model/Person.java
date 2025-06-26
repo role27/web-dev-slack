@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data // Getter, Setter, ToString, EqualsAndHashCode
+@Data
+
+// Getter, Setter, ToString, EqualsAndHashCode
 public class Person implements Comparable<Person>{
 	
 	private String name;
