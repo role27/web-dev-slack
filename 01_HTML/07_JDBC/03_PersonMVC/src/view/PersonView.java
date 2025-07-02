@@ -21,6 +21,9 @@ public class PersonView {
 	    try {
 			pc.addPerson();
 			pc.searchAllPerson();
+			pc.searchPerson();
+			pc.updatePerson();
+			pc.removePerson();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
