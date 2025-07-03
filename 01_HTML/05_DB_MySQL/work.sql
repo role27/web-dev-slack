@@ -3,7 +3,7 @@ CREATE TABLE member(
     name VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL
 );
-
+DROP TABLE member;
 select * from member;
 
 
@@ -31,9 +31,39 @@ CREATE TABLE person(
 );
 
 INSERT INTO person VALUES ("로이", 10 , "경기도 용인시");
-INSERT INTO person VALUES ("레오", 6 , "경기도 용인시");
-INSERT INTO person VALUES ("마리", 12 , "서울 강동구");
-INSERT INTO person VALUES ("봉구", 7 , "경기도 광주시");
 
 SELECT * FROM person;
 
+
+//----------------------------------------------
+
+CREATE TABLE Book(
+	book_no INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    access_Age INT DEFAULT 0
+);
+SELECT * FROM Book;
+
+CREATE TABLE member(
+	id VARCHAR(100) PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    pwd VARCHAR(200) NOT NULL,
+    age INT NOT NULL
+);
+
+
+CREATE TABLE Rent(
+	rent_no INT PRIMARY KEY AUTO_INCREMENT,
+    id VARCHAR(100),
+    book_no INT,
+    rent_date DATE DEFAULT (CURRENT_DATE)
+);
+
+
+
+ALTER TABLE Rent ADD 
+FOREIGN KEY (id) REFERENCES member(id);
+
+ALTER TABLE Rent ADD 
+FOREIGN KEY (book_no) REFERENCES Book(book_no);

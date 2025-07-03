@@ -5,9 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import config.ServerInfo;
+import vo.Person;
 
 public class Personcontroller {
 
@@ -43,8 +45,36 @@ public class Personcontroller {
 	// ------- 변동적인 반복 : DAO(Database Access Object)
 	
 	
+	public boolean checkName(String name, int age, String addr) throws SQLException {
+		Connection connect = getConnect();
+		
+		String query = "SELECT name, age, addr FROM person WHERE name = ? AND age = ? AND addr = ?";
+		PreparedStatement ps = connect.prepareStatement(query);
+		ps.setString(1, name);
+		ps.setInt(2, age);
+		ps.setString(3, addr);
+		
+		ResultSet rs = ps.executeQuery();
+		// rs.next() - 존재하면 true, 존재하지 않으면 false
+		return rs.next(); 
+			
+		}
+	
+	
+	
 	// person 테이블에 데이터 추가 - INSERT
-	public void addPerson() throws SQLException {
+	public int addPerson() throws SQLException  {
+		
+		/*
+		// 이름, 나이, 주소가 모두 다 같은 경우 "이미정보가 있습니다" - 가입x
+		
+		
+		boolean check = checkName(name, age, addr);
+		if(check) {
+			return "이미 정보가 있습니다";
+		}
+		*/
+		
 		Connection connect = getConnect();
 
 		String query = "INSERT INTO person (name, age, addr) VALUES (?,?,?)";
@@ -57,12 +87,16 @@ public class Personcontroller {
 		// 로직 추가 예정
 
 		// 4. 쿼리실행
+		
+		int result = ps.executeUpdate();
 
-		 System.out.println(ps.executeUpdate() + "명 추가");
+		// System.out.println(ps.executeUpdate() + "명 추가");
 
 		// 5. 자원반납
 
 		close(ps, connect);
+		
+		return result;
 	}
 
 
@@ -88,6 +122,8 @@ public class Personcontroller {
 		close(rs, ps, connect);
 	}
 		
+	
+	
 	
 		
 
