@@ -119,7 +119,7 @@ public class Personcontroller {
 	public void updatePerson() throws SQLException {
 		Connection connect = getConnect();
 
-		String query = "UPDATE person SET age = ? WHRER name = ?";
+		String query = "UPDATE person SET age = ? WHERE name = ?";
 		PreparedStatement ps = connect.prepareStatement(query);
 
 		ps.setInt(1, 7);
