@@ -1,5 +1,14 @@
 package vo;
 
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Book {
 
 	private int bookNo; // primary key

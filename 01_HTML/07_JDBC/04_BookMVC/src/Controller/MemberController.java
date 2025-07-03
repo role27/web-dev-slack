@@ -23,9 +23,19 @@ public class MemberController {
 	}
 	
 	//5. 로그인
-	public Member login(String id, String pwd) {
-		return null;
+	public Member login(String id, String pwd) throws SQLException {
+		
+		Member member = dao.login("user01", "pass123");
+
+		if (member != null) {
+		    System.out.println("로그인 성공: " + member.getId());
+		} else {
+		    System.out.println("로그인 실패: 아이디 또는 비밀번호가 틀립니다.");
+		}
+		return member;
 	}
+	
+	
 	
 	//6. 회원탈퇴
 	public void delete(String id) {
