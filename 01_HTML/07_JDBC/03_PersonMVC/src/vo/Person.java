@@ -1,4 +1,4 @@
-package model;
+package vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
