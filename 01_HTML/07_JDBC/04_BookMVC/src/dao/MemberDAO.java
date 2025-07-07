@@ -76,7 +76,6 @@ public class MemberDAO {
 	    ResultSet rs = ps.executeQuery();
 		
 	    if (rs.next()) {
-	        // 컬럼 순서는 실제 DB에 따라 조정
 	       Member member = new Member(
 	            rs.getString("id"),
 	            rs.getString("name"),

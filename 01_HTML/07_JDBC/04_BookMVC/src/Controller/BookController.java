@@ -1,10 +1,14 @@
 package Controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dao.BookDAO;
 import vo.Book;
 
 public class BookController {
+	
+	private BookDAO dao = BookDAO.getInstance();
 
 	// 1. 전체 책 조회
 	
@@ -16,8 +20,14 @@ public class BookController {
 	
 	public boolean registerBook(String title, String author, int accessAge) {
 		// 기존 제목, 저자, 제한 나이까지 동일한 책이 있으면 안되게
-		registerBook ("노르웨이의 숲", "무라카미 하루키", 18);
-		registerBook ("채식주의자", "한강", 19);
+		try {
+			dao.registerBook("노르웨이의 숲", "무라카미 하루키", 18);
+			dao.registerBook ("채식주의자", "한강", 19);
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		return false;
 	}

@@ -25,6 +25,9 @@ public class BookDAO {
 		}
 	}
 	
+	
+	
+	
 	public Connection Connect() throws SQLException {
 		return DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASSWORD);
 	}
@@ -102,7 +105,7 @@ public class BookDAO {
 
 		ps.setInt(1, bookNo);
 		
-		 int result = ps.executeUpdate(); // 삭제된 행 수 반환
+		 int result = ps.executeUpdate(); 
 
 		    if (result > 0) {
 		        System.out.println("도서 번호 " + bookNo + "번 책이 삭제되었습니다.");
@@ -114,6 +117,10 @@ public class BookDAO {
 		    connect.close();
 
 	}
+
 	
+	public static BookDAO getInstance() {
+		return null;
+	}
 	
 }
