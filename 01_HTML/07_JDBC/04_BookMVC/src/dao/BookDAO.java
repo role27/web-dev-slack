@@ -55,9 +55,9 @@ public class BookDAO {
 		 ArrayList<Book> bookList = new ArrayList<>();
 		
 		 while (rs.next()) {
-		        Book book = new Book( rs.getInt("bookNo"), rs.getString("title"), rs.getString("author"), rs.getInt("accessAge"));
+		      //  Book book = new Book( rs.getInt("bookNo"), rs.getString("title"), rs.getString("author"), rs.getInt("accessAge"));
 				
-		        bookList.add(book);
+		      //  bookList.add(book);
 				
 		}
 		
