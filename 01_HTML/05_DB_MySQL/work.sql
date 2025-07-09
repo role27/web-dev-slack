@@ -29,7 +29,7 @@ CREATE TABLE person(
     age INT,
     addr VARCHAR(200)
 );
-
+member
 INSERT INTO person VALUES ("로이", 10 , "경기도 용인시");
 
 SELECT * FROM person;
@@ -52,6 +52,8 @@ CREATE TABLE member(
     age INT NOT NULL
 );
 
+SELECT * FROM member;
+
 
 CREATE TABLE Rent(
 	rent_no INT PRIMARY KEY AUTO_INCREMENT,
@@ -67,3 +69,5 @@ FOREIGN KEY (id) REFERENCES member(id);
 
 ALTER TABLE Rent ADD 
 FOREIGN KEY (book_no) REFERENCES Book(book_no);
+
+

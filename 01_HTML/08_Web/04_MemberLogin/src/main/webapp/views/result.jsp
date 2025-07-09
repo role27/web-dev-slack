@@ -8,22 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	Member member = (Member) request.getAttribute("member");
-	String id = request.getParameter("id");
-	%>
-	<%
-	if (member!=null) {
-	%>
+
 	<h1>회원 정보</h1>
+   <%Member member = (Member) request.getAttribute("member");%>
+
 	<ul>
 		<li>아이디 : <%=member.getId()%></li>
 		<li>이름 : <%=member.getName()%></li>
 		<li>나이 : <%=member.getAge()%></li>
 	</ul>
-	<%} else {%>
-	   <h1> 검색에 실패했습니다.</h1>
-	<%}%>
+	<a href = "/">메인 페이지로 이동</a>
+	
 
 </body>
 </html>
