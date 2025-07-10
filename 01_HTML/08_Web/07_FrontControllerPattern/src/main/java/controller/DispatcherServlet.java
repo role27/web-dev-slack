@@ -42,7 +42,16 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 		if(command.equals("login")) {
 			path = login(request, response);
+		} else if(command.equals("allMember")) {
+			path = allMember(request, response);
+		} else if(command.equals("logout")) {
+			path = logout(request, response);
+		} else if(command.equals("register")) {
+			path = register(request, response);
+		} else if(command.equals("search")) {
+			path = search(request, response);
 		}
+			
 		request.getRequestDispatcher(path).forward(request, response);
 		} catch (SQLException e) {
 					e.printStackTrace();
@@ -65,22 +74,7 @@ public class DispatcherServlet extends HttpServlet {
 	}
 	
 	// 회원가입
-	protected void service2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		String command = request.getParameter("command");
-		String path ="/";
-		
-		try {
-		if(command.equals("register")) {
-			path = register(request, response);
-		}
-		request.getRequestDispatcher(path).forward(request, response);
-		} catch (SQLException e) {
-					e.printStackTrace();
-		}
-			
-	}
+	
 	
 	protected String register(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		String id = request.getParameter("id");
@@ -89,7 +83,7 @@ public class DispatcherServlet extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		
 		MemberDAO dao = new MemberDAO();
-	    Member member = dao.register(id, pwd, name, age);
+	    dao.register(id, pwd, name, age);
 			
 		
 	    return "index.jsp";
@@ -98,87 +92,32 @@ public class DispatcherServlet extends HttpServlet {
 	}
 	
 	//회원조희
-	protected void service3(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		
-		String command = request.getParameter("command");
-		String path = "/";
-
-		try {
-			if (command.equals("search")) {
-				path = search(request, response);
-			}
-			request.getRequestDispatcher(path).forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
-
+	
 	protected String search(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		String id = request.getParameter("id");
 
 		MemberDAO dao = new MemberDAO();
 		Member member = dao.search(id);
+		request.setAttribute("member", member);
 
-		return "/view/result.jsp";
+		return "/views/result.jsp";
 
 	}
 	
 	// 전체회원조회
-	protected void service4(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		
-		String command = request.getParameter("command");
-		String path = "/";
-
-		try {
-			if (command.equals("allMember")) {
-				path = allMember(request, response);
-			}
-			request.getRequestDispatcher(path).forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		 
-	}
-
+	
 	protected String allMember(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
-         MemberDAO dao = new MemberDAO();
-		
+		MemberDAO dao = new MemberDAO();
 
-			ArrayList<Member> list = dao.allMember();
-			request.setAttribute("list", list);
-			
-			return "/view/allMember.jsp";
-	}
-	
-	
+		ArrayList<Member> list = dao.allMember();
+		request.setAttribute("list", list);
+
+		return "/views/allMember.jsp";
+	}	
 	
 	//로그아웃
 	
-	protected void service5(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		
-		String command = request.getParameter("command");
-		String path = "/";
-
-		try {
-			if (command.equals("logout")) {
-				path = logout(request, response);
-			}
-			request.getRequestDispatcher(path).forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		 
-	}
-
+	
 	protected String logout(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		
 		  HttpSession session = request.getSession();
