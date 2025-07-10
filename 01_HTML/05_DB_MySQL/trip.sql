@@ -11,6 +11,7 @@ CREATE TABLE USER_INFO(
  DEPT_NAME VARCHAR(50), -- 국내팀, 해외팀, 예약팀
  POSITION VARCHAR(50)    -- 사원, 대리, 과장
 );
+
 -- 2. 프로젝트 관리 (여행 패키지 개발)
 -- 여행 패키지 개발 프로젝트
 CREATE TABLE PROJECT (
@@ -22,6 +23,7 @@ CREATE TABLE PROJECT (
  STATUS VARCHAR(20) CHECK(STATUS IN ('기획중', '진행중', '완료')),
  MANAGER_NO INT                      -- 담당자
 );
+
 -- 프로젝트 업무
 CREATE TABLE PROJECT_TASKS(
  TASK_NO INT AUTO_INCREMENT PRIMARY KEY,
