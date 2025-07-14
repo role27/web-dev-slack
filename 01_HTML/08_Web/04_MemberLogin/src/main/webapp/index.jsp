@@ -1,0 +1,43 @@
+<%@page import="vo.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원 관리</h1>
+	
+	<ul>
+		<% Member member = (Member) session.getAttribute("member"); %>
+		<% String contextPath = request.getContextPath(); %>
+		<% if(member==null) { %>
+		<%-- 로그인 되어 있지 않은 경우 --%>
+		<li><a href="<%= contextPath %>/views/register.jsp">회원가입</a></li>
+		
+		<li><a href="<%= contextPath %>/views/login.jsp">로그인</a></li>
+		<% } else { %>
+		<%-- 로그인 된 경우 --%>
+		<li><a href="<%= contextPath %>/views/search.jsp">회원검색</a></li>
+		
+		 <li><a href="<%= contextPath %>/allMember">전체 회원 보기</a></li>
+		 <%-- 전체 회원 보기 : AllMemberServlet
+		 				views/allMember.jsp에 리스트 출력 --%>
+		 <li><a href="/logout">로그아웃</a></li>
+		 <%-- 로그아웃 : 로그아웃하고 index.jsp로! LogoutServlet --%>
+		 <% } %>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
