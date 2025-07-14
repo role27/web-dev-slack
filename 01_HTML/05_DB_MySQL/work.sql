@@ -71,3 +71,4 @@ ALTER TABLE Rent ADD
 FOREIGN KEY (book_no) REFERENCES Book(book_no);
 
 
+SELECT * FROM member;
