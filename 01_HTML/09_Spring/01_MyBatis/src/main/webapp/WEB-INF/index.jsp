@@ -20,16 +20,32 @@
 					나이 :<input type="text" name="age" value="${member.age}"><br>
 					<input type="submit" name="회원수정">
 					</form>
-					
-			</c:when>
-			<c:otherwise>
-	<a href="/register">회원가입</a>
-	<a href="/login">로그인</a>
-
-	</c:otherwise>
-	</c:choose>
+					<h2>비밀번호만 변경</h2>
+							<form action="/update" method="post">
+								비밀번호 : <input type="password" name="pwd"><br>
+								<input type="submit" value="비밀번호 수정">
+							</form>
+							<!-- primarykey가 id일 거에요! -->
+							<a href="/delete">회원탈퇴</a>
+						</c:when>
+						<c:otherwise>
+							<a href="/register">회원가입</a>
+							<a href="/login">로그인</a>
+						</c:otherwise>
+						</c:choose>
+						
+						<form action="/search">
+							<select name="select">
+								<option value="all">이름 또는 아이디</option>
+								<option value="id">아이디</option>
+								<option value="name">이름</option>
+							</select>
+							<input type="text" name="keyword" value="${param.keyword}">
+							<input type="submit" value="검색">
+						</form>
 	
 	<!-- 회원 전체 목록이 나오고 -->
+	<form action="/delete" method="post">
 	<table border="1">
 	  
 	  <tr>
@@ -37,6 +53,7 @@
 			<th>비밀번호</th>
 			<th>이름</th>
 			<th>나이</th>
+			<th>삭제</th>
 		</tr>
 		
 	 <c:forEach items="${list}" var="member">
@@ -45,11 +62,13 @@
 		<td>${member.pwd}</td>
 		<td>${member.name}</td>
 		<td>${member.age}</td>
+		<td><input type="checkbox" name="idlist" value="@{item.id}"></td>
 		</tr>	
 		</c:forEach>
-		
+	
 	</table>
-		
+<input type="submit" value="삭제">	
+</form>
 		
 </body>
 </html>

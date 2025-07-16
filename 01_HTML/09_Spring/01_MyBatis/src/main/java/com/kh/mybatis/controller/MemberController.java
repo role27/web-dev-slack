@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.mybatis.model.dto.SearchDTO;
 import com.kh.mybatis.model.vo.Member;
 import com.kh.mybatis.service.MemberService;
 
@@ -62,8 +64,26 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/delete")
+	public String delete(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("member");
+		service.delete(member.getId());
+		session.invalidate();
+		return "redirect:/";
+	}
 	
+	@GetMapping("/search")
+	public String search(SearchDTO dto, Model model) {
+		model.addAttribute("list", service.search(dto));
+		return "index";
+	}
 	
+	@PostMapping("/delete")
+	public String delete(@RequestParam(name="idList", required= false)List<String> idList) {
+	     if(idList!=null) service.selectDelete(idList);
+		return "redirect:/";
+	}
 }
 
 
