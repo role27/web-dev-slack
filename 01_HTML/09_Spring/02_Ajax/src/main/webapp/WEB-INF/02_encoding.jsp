@@ -47,9 +47,9 @@
 			const nickname = $("#nick").val();
 			$.ajax({
 				//요청
-				type:"get",
-				url:"/encoding",
-				data:"nickname=" + nickname
+				type:'get',
+				url:'/encoding'',
+				data:'nickname=' + nickname
 				//응답
 				success:function(result){
 				$("#result").text(result);
