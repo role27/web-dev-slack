@@ -3,6 +3,7 @@ package com.kh.ajax.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class PageController {
 	
@@ -10,7 +11,7 @@ public class PageController {
 	public String ajax1() {
 		return "01_count";
 	}
-	
+
 	@GetMapping("/ajax2")
 	public String ajax2() {
 		return "02_encoding";
@@ -25,13 +26,13 @@ public class PageController {
 	public String ajax4() {
 		return "04_serialize";
 	}
+
 	
 	@GetMapping("/ajax5")
 	public String ajax5() {
 		return "05_formdata";
 	}
 }
-
 
 
 
