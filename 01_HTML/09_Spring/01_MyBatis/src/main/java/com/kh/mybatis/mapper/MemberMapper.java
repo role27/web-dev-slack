@@ -8,9 +8,7 @@ import com.kh.mybatis.model.dto.SearchDTO;
 import com.kh.mybatis.model.vo.Member;
 
 @Mapper
-//DAO 역할
 public interface MemberMapper {
-
 	void register(Member vo);
 	Member login(Member vo);
 	List<Member> allMember();
@@ -19,3 +17,7 @@ public interface MemberMapper {
 	List<Member> search(SearchDTO dto);
 	void selectDelete(List<String> idList);
 }
+
+
+
+

@@ -13,8 +13,13 @@
 		아이디 : <input type="text" name="id"><br>
 		비밀번호 : <input type="password" name="pwd"><br>
 		이름 : <input type="text" name="name"><br>
-		나이: <input type="text" name="age"><br>
+		나이 : <input type="text" name="age"><br>
 		<input type="submit" value="회원가입">
-		</form>
+	</form>
 </body>
 </html>
+
+
+
+
+
