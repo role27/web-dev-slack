@@ -1,0 +1,33 @@
+package com.kh.paging.dto;
+
+
+public class pagingDTO {
+	
+	private int offset = 0; // 시작 위치
+	private int limit = 10; // 개수
+	
+	private int page = 1; //현재페이지
+	private int pageSize = 10; // 한 페이지당 페이지 개수
+	private int endPage = this.pageSize; // 한 페이지의 마지막 페이지 수
+	private int startPage = this.endPage - this.pageSize + 1; // 한 페이지의 첫페이지 수
+	
+	/*
+	 * page : 1~10 -> endpage : 10
+	 * page : 11~20 -> endpage : 20
+	 * page : 21~30 -> endpage : 30
+	 * */	
+	
+	private boolean prev;
+	private boolean next;
+	
+	public pagingDTO(int page, int total) {
+		this.page = page;
+		this.endPage = (int)(Math.ceil((double)page / this.pageSize)) * this.pageSize; 
+		this.startPage = this.endPage - this.pageSize + 1;
+		
+		int lastPage = 
+	}
+	
+		
+
+}

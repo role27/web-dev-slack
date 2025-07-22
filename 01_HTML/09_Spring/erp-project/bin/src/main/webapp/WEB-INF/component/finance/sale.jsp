@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> a5a524f3af52c7fb235ed2c3d2110547ce82f765
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,4 +16,8 @@
 		<p>총액 : <input type="text" name="totalAmount"></p>
 		<input type="submit" value="등록">
 	</form>
+<<<<<<< HEAD
 </section>
+=======
+</section>
+>>>>>>> a5a524f3af52c7fb235ed2c3d2110547ce82f765
