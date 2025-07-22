@@ -18,19 +18,19 @@ public class MemberService {
 	public void register(Member member) {
 		mapper.register(member);
 	}
-
+	
 	public Member login(Member member) {
 		return mapper.login(member);
-		
 	}
 	
-	public List<Member> allmember(){
+	public List<Member> allMember() {
 		return mapper.allMember();
 	}
 	
-	public void update (Member member) {
+	public void update(Member member) {
 		mapper.update(member);
 	}
+
 	public void delete(String id) {
 		mapper.delete(id);
 	}
@@ -43,3 +43,7 @@ public class MemberService {
 		mapper.selectDelete(idList);
 	}
 }
+
+
+
+

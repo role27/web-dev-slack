@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.kh.ajax.service.MemberService;
 import com.kh.ajax.vo.Member;
 
-
-
 @Controller
 public class AjaxController {
 	
@@ -18,33 +16,41 @@ public class AjaxController {
 	
 	@Autowired
 	private MemberService service;
-	
-    @ResponseBody  
+
+	@ResponseBody
 	@GetMapping("/count")
 	public int count() {
-		System.out.println("ajax요청");
-		return count++;
+		System.out.println("ajax 요청!");
+		return ++count;
 	}
-    
-    @ResponseBody  
-    @GetMapping("/encoding")
-	public void encoding(String nickname) {
-		System.out.println(nickname);
+	
+	@ResponseBody
+	@GetMapping("/encoding")
+	public String encoding(String nickname) {
+		return nickname;
 	}
-    
-    @ResponseBody 
+	
+	@ResponseBody
 	@PostMapping("/check")
 	public boolean check(String id) {
-    	//Member member = service.idCheck(id);
-    	//if(member!=null) return true;
-    	return service.idBoolCheck(id);
-    		}
-    
-    
-    @ResponseBody 
-   	@PostMapping("/signup")
-   	public void check(Member vo) {
-		System.out.println();
-		System.out.println();
-       		}
+		//Member member = service.idCheck(id);
+		//if(member!=null) return true;
+		return service.idBoolCheck(id);
+	}
+	
+	@ResponseBody
+	@PostMapping("/signup")
+	public Member check(Member vo) {
+		service.register(vo);
+		return vo;
+	}
+	
+	@ResponseBody
+	@PostMapping("/register")
+	public Member register(Member vo) {
+		System.out.println(vo);
+		return vo;
+	}
+	
+	
 }

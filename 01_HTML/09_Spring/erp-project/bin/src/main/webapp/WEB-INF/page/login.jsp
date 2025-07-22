@@ -20,4 +20,9 @@
 		});
 	</script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+>>>>>>> a5a524f3af52c7fb235ed2c3d2110547ce82f765

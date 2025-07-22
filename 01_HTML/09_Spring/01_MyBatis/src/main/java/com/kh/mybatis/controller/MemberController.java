@@ -18,19 +18,19 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService service;
 	
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("list", service.allmember());
+		model.addAttribute("list", service.allMember());
 		return "index";
 	}
 	
 	@GetMapping("/register")
-		public String register() {
-		return "/mypage/register";
+	public String register() {
+		return "mypage/register";
 	}
 	
 	@PostMapping("/register")
@@ -38,7 +38,6 @@ public class MemberController {
 		service.register(vo);
 		return "redirect:/";
 	}
-	
 	
 	@GetMapping("/login")
 	public String login() {
@@ -57,10 +56,11 @@ public class MemberController {
 	public String update(Member vo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		
 		vo.setId(member.getId());
 		service.update(vo);
-		session.setAttribute("member", vo);
+		
+		Member result = service.login(vo);
+		session.setAttribute("member", result);
 		return "redirect:/";
 	}
 	
@@ -80,10 +80,15 @@ public class MemberController {
 	}
 	
 	@PostMapping("/delete")
-	public String delete(@RequestParam(name="idList", required= false)List<String> idList) {
-	     if(idList!=null) service.selectDelete(idList);
+	public String delete(@RequestParam(name="idList", required=false) List<String> idList) {
+		if(idList!=null) service.selectDelete(idList);
 		return "redirect:/";
-	}
+	} 
+	
 }
+
+
+
+
 
 
