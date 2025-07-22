@@ -1,5 +1,10 @@
 package com.kh.paging.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 
 public class pagingDTO {
 	
@@ -25,7 +30,16 @@ public class pagingDTO {
 		this.endPage = (int)(Math.ceil((double)page / this.pageSize)) * this.pageSize; 
 		this.startPage = this.endPage - this.pageSize + 1;
 		
-		int lastPage = 
+		// 전체 개수를 통해서 마지막 페이지
+		int lastPage = (int) Math.ceil((double) total / this.limit);
+		
+		if(lastPage < this.endPage) {
+			this.endPage = lastPage;
+		}
+		
+		this.prev = this.startPage > 1;
+		this.next = this.endPage < lastPage;
+		
 	}
 	
 		

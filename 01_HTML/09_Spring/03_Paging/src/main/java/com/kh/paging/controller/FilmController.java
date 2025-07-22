@@ -19,10 +19,10 @@ public class FilmController {
 	
 	
 	@GetMapping("/list")
-	public String list(Model model) {
-		    pagingDTO dto = new pagingDTO();
-			List<Film> films = service.showFilm(dto);
+	public String list(Model model, pagingDTO paging) {
+		   List<Film> films = service.showFilm(paging);
 			model.addAttribute("list", films);
+			model.addAttribute("paging", new pagingDTO(paging.getPage(), 0));
 			return "list";
 	}
 		
