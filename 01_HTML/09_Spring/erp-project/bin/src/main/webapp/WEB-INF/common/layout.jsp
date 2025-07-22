@@ -16,5 +16,6 @@
       <jsp:include page="header.jsp"/>
       <jsp:include page="${component}"/>
     </div>
+	<script src="${pageContext.request.contextPath}/resources/js/layout.js"></script>
   </body>
 </html>
