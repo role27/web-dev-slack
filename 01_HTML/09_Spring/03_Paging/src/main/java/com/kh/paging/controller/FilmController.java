@@ -26,7 +26,7 @@ public class FilmController {
 			return "list";
 	}
 		
-	}
+}
 
 	
 

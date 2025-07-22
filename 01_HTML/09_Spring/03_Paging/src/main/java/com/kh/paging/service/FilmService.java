@@ -29,7 +29,4 @@ public class FilmService{
 		return mapper.showFilm(paging);
 	}
 	
-
-	
-	
 }
