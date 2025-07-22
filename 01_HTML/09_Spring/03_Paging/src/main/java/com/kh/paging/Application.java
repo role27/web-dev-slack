@@ -1,13 +1,15 @@
-package com.kh.erp;
+package com.kh.paging;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@MapperScan("com.kh.paging.mapper")
 @SpringBootApplication
-public class ErpProjectApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ErpProjectApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

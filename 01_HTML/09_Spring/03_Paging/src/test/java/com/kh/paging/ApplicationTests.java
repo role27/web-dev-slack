@@ -1,10 +1,10 @@
-package com.kh.erp;
+package com.kh.paging;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ErpProjectApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
