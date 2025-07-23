@@ -22,7 +22,7 @@ public class FilmController {
 	public String list(Model model, pagingDTO paging) {
 		   List<Film> films = service.showFilm(paging);
 			model.addAttribute("list", films);
-			model.addAttribute("paging", new pagingDTO(paging.getPage(), 0));
+			model.addAttribute("paging", new pagingDTO(paging.getPage(), service.total()));
 			return "list";
 	}
 		
