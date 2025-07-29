@@ -3,12 +3,17 @@ package com.kh.upload.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.web.multipart.MultipartFile;
+
+
+import com.kh.upload.vo.Board;
 
 
 @Mapper
 public interface BoardMapper {
 	
-	List<MultipartFile> files();
-
+	void insert(Board vo);
+	List<Board> selectAll();
+	Board select(int no);
+    void update(Board vo);
+    void delete(int no);
 }

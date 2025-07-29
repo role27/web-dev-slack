@@ -81,3 +81,5 @@ CREATE TABLE board (
     url VARCHAR(100),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+SELECT * FROM board;

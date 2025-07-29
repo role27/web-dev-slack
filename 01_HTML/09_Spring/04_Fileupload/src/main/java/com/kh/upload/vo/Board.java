@@ -18,6 +18,4 @@ public class Board {
 	private String url;
 	private LocalDateTime createdAt;
  
-
-
 }
