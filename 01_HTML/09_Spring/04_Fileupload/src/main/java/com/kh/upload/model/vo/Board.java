@@ -1,4 +1,4 @@
-package com.kh.upload.vo;
+package com.kh.upload.model.vo;
 
 import java.time.LocalDateTime;
 

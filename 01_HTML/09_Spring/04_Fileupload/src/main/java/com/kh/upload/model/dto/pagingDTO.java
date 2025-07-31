@@ -1,4 +1,4 @@
-package com.kh.paging.dto;
+package com.kh.upload.model.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 
 public class pagingDTO {
 	
-	
-	
+	private String keyword;
 	
 	private int offset = 0; // 시작 위치
-	private int limit = 10; // 개수
+	private int limit = 5; // 개수
 	
 	private int page = 1; //현재페이지
 	private int pageSize = 10; // 한 페이지당 페이지 개수
