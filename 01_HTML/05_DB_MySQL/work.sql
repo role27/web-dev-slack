@@ -17,7 +17,7 @@ INSERT INTO bank VALUES('지연', 0);
 Select * from bank;
 
 UPDATE bank SET balance = balance - 30000 WHERE name = '지은';
-UPDATE bank SET balance = balance + 30000 WHERE name = '지연';
+UPDATE bank SET balance = balance + 30000 WHEREboard name = '지연';
 
 SELECT balance FROM bank WHERE name ='지은';
 
@@ -81,3 +81,21 @@ CREATE TABLE board (
     url VARCHAR(100),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+SELECT * FROM work.board;
+
+CREATE TABLE user(
+	id VARCHAR(50) PRIMARY KEY,
+   pwd VARCHAR(100),
+   name VARCHAR(100),
+   role VARCHAR(20) DEFAULT 'ROLE_USER'
+);
+
+select * from user;
+
+
+
+
+
+
+

@@ -30,9 +30,10 @@ public class FilmService{
 	
 	}
 
-
+	
+	
 	public int total() {
-		return 0;
+		return mapper.total();
 	}
 	
 }
