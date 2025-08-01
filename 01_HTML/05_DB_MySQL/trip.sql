@@ -9,30 +9,6 @@ CREATE TABLE USER_INFO(
  POSITION VARCHAR(50)    -- 사원, 대리, 과장
 );
 
-<<<<<<< Updated upstream
-DROP TABLE product;
-
-CREATE TABLE PRODUCT(
-  PRODUCT_SEQ INT AUTO_INCREMENT PRIMARY KEY,
-  PRODUCT_NO INT NOT NULL,
-  PRODUCT_NAME VARCHAR(100) NOT NULL,
-  PRODUCT_DESC TEXT,
-  DESTINATION VARCHAR(100),
-  DURATION_DAYS INT, -- 여행 일수
-  PRICE_ADULT INT, -- 성인 가격
-  PRICE_CHILD INT, -- 아동 가격
-  PRICE_INFANT INT, -- 유아 가격
-  MIN_PARTICIPANTS INT, -- 최소 출발 인원
-  MAX_PARTICIPANTS INT, -- 최대 출발 인원
-  START_DATE DATE, -- 시작일
-  END_DATE DATE, -- 종료일
-  INCLUDE_FLIGHT BOOLEAN DEFAULT FALSE, -- 항공료 포함 여부
-  INCLUDE_HOTEL BOOLEAN DEFAULT FALSE, -- 숙박료 포함 여부
-  INCLUDE_MEAL BOOLEAN DEFAULT FALSE, -- 식사 포함 여부
-  STATUS VARCHAR(20) CHECK(STATUS IN ('판매중', '판매중단', '시즌종료')),
-  CREATE_DATE DATETIME DEFAULT (CURRENT_TIMESTAMP),
-  PROJECT_ID INT
-=======
 
 CREATE TABLE PRODUCT(
   PRODUCT_SEQ INT AUTO_INCREMENT PRIMARY KEY, -- 상품 고유 ID
@@ -51,17 +27,17 @@ CREATE TABLE PRODUCT(
     leader TEXT, -- 인솔자
     guide TEXT, -- 가이드
     min_people INT, -- 최소출발인원
-    description1 TEXT, -- 간략설명
+    short_Desc TEXT, -- 간략설명
     main_image VARCHAR(255), -- 대표 이미지 (파일명 또는 경로)
     detail_image VARCHAR(255), -- 상세 이미지 (파일명 또는 경로)
-    description TEXT, -- 상세설명
+    detail_Desc TEXT, -- 상세설명
     admin_memo TEXT, -- 관리자 메모
     CREATE_USER_ID VARCHAR(30), -- 저장자
     CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 저장한 시간
     UPDATE_USER_ID VARCHAR(30), -- 수정자
     UPDATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 수정한 시간
 	PROJECT_ID INT
->>>>>>> Stashed changes
+
 );
 
  SET FOREIGN_KEY_CHECKS=0;
