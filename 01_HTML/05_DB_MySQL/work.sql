@@ -91,7 +91,7 @@ CREATE TABLE user(
    role VARCHAR(20) DEFAULT 'ROLE_USER'
 );
 
-select * from user;
+select * from work.user;
 
 
 

@@ -9,6 +9,7 @@ CREATE TABLE USER_INFO(
  POSITION VARCHAR(50)    -- 사원, 대리, 과장
 );
 
+<<<<<<< Updated upstream
 DROP TABLE product;
 
 CREATE TABLE PRODUCT(
@@ -31,6 +32,36 @@ CREATE TABLE PRODUCT(
   STATUS VARCHAR(20) CHECK(STATUS IN ('판매중', '판매중단', '시즌종료')),
   CREATE_DATE DATETIME DEFAULT (CURRENT_TIMESTAMP),
   PROJECT_ID INT
+=======
+
+CREATE TABLE PRODUCT(
+  PRODUCT_SEQ INT AUTO_INCREMENT PRIMARY KEY, -- 상품 고유 ID
+    PRODUCT_NAME VARCHAR(100) NOT NULL, -- 상품명
+    PRODUCT_NO INT NOT NULL, -- 상품코드
+    STATUS VARCHAR(20), -- 상품상태 --(예약가능, 출발가능, 견적가능, 예약마감)
+    product_structure VARCHAR(50), -- 상품구성
+    currency VARCHAR(10), -- 통화
+    PRICE_ADULT INT, -- 성인 가격
+    PRICE_CHILD INT, -- 아동 가격
+    PRICE_INFANT INT, -- 유아 가격
+    days VARCHAR(255), -- 예약가능요일 (예: 'mon,tue,wed')
+    datechoice VARCHAR(50), -- 예약일 선택제한
+    icon VARCHAR(255), -- 아이콘 (특가, 인기 등)
+    label VARCHAR(255), -- 라벨 (특가/특전, TOP1 등)
+    leader TEXT, -- 인솔자
+    guide TEXT, -- 가이드
+    min_people INT, -- 최소출발인원
+    description1 TEXT, -- 간략설명
+    main_image VARCHAR(255), -- 대표 이미지 (파일명 또는 경로)
+    detail_image VARCHAR(255), -- 상세 이미지 (파일명 또는 경로)
+    description TEXT, -- 상세설명
+    admin_memo TEXT, -- 관리자 메모
+    CREATE_USER_ID VARCHAR(30), -- 저장자
+    CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 저장한 시간
+    UPDATE_USER_ID VARCHAR(30), -- 수정자
+    UPDATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 수정한 시간
+	PROJECT_ID INT
+>>>>>>> Stashed changes
 );
 
  SET FOREIGN_KEY_CHECKS=0;
