@@ -10,18 +10,51 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-	<sec:authorize access="isAnonymous()"> <!-- 누구나 볼 수 있음-->
+	<sec:authorize access="isAnonymous()"></sec:authorize>
+	<sec:authorize access="isAuthenticated()"></sec:authorize>	
+	<sec:authorize access="hseRole('ADMIN')"></sec:authorize>
+	
+	
+	<div id = "anonymous">
+	<!-- 누구나 볼 수 있음-->
 			<a href="/register">회원가입</a>
 			<a href="/login">로그인</a>
-			</sec:authorize>
-	<sec:authorize access="isAuthenticated()"> <!-- 인증된 사람만 -->			
-			
-			<a href="/logout">로그아웃</a>
+	</div>		
+	 <!-- 인증된 사람만 -->			
+	<div id="authenicated"		
+			<a href="/logout" id="logout">로그아웃</a>
 			<a href="/mypage">마이 페이지</a>
-			</sec:authorize>							
+	</div>								
            
-			<sec:authorize access="hseRole('ADMIN')">
-			<a href="/admin">관리자 페이지</a><br>
-			</sec:authorize>
+	<a href="/admin" id="/admin">관리자 페이지</a><br>
+
+	<script>
+			const token = localStorage.getItem("token");
+			if(token!==null) {
+				$('#authenticated').show();
+				$('#anonymous').hide();
+				$('#admin').hide();
+				
+				$.ajax({
+					url : '/check',
+					type : 'get'
+					data : {token : token},
+					success : function(data){
+						console.log(data);
+					}
+				})
+			} else {
+				$('#authenticated').show();
+				$('#anonymous').hide();
+				W$('#admin').hide();
+			}
+			
+			$('#logout').click((e)=>{
+				e.prevenDefaulf();
+				localStorage.removeItem("token");
+				location.relaod();
+			})
+		</script>
+	
 	</body>
 	</html>

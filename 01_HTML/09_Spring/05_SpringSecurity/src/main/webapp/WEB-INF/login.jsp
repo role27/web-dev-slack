@@ -18,5 +18,22 @@
 	</form>
 	
 	
+	<script>
+			$("#login").click((e) => {
+				e.preventDefault(); // 기존 이벤트 제거
+				$.ajax({
+					url:'/login',
+					type: 'post',
+					data : $('#frm').serialize(),
+					success: function(data) {
+						// localStorage에 token 키 값으로 저장
+						localStorage.setItem("token", data);
+						// / <- index.jsp로 이동
+						location.href = "/";
+					}
+				});
+			});
+		</script>
+	
 	</body>
 	</html>

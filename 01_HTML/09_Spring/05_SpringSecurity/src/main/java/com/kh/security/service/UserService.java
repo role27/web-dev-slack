@@ -14,7 +14,7 @@ import com.kh.security.mapper.UserMapper;
 import com.kh.security.vo.User;
 
 @Service
-public class UserService implements UserDetailsService{
+public class UserService {
 
 	@Autowired
 	private UserMapper mapper;
@@ -38,11 +38,15 @@ public class UserService implements UserDetailsService{
 	}
 
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = mapper.login(username);
-		System.out.println(user);
-		return user;
+	public User login(User vo) {
+		User user = mapper.login(vo.getId());
+		
+		if(user!=null && bcpe.matches(vo.getPwd(), user.getPwd())) {
+			System.out.println("로그인 성공!");
+			return user;
+		}
+		
+		return null;
 	}
 
 
