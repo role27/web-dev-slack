@@ -1,10 +1,6 @@
 package com.kh.security.controller;
 
-import java.net.Authenticator;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,22 +12,12 @@ import com.kh.security.vo.User;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
 	private TokenProvider tokenProvider;
-	
-	@GetMapping("/index")
-	public void index() {}
-	
-	// localhost:8080/register <-- 회원가입 페이지로 이동
-	@GetMapping("/register")
-	public String register() {
-		return "/register";
-	}
-	
 	
 	@PostMapping("/register")
 	public String register(User vo) {
@@ -39,25 +25,6 @@ public class UserController {
 		return "redirect:/login";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}	
-	
-	@GetMapping("/mypage")
-	public void mypage() {}
-		
-	
-	@GetMapping("/admin")
-	public void admin() {
-		
-	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	User user = (User) auth.getPrincipal();
-	System.out.println(user);
-	
-	}
-	
-
 	@ResponseBody
 	@PostMapping("/login")
 	public String login(User vo) {
@@ -70,8 +37,9 @@ public class UserController {
 		return null;
 	}
 	
+	@ResponseBody
 	@GetMapping("/check")
-	public void check(String token) {
-		System.out.println(token);
+	public User check(String token) {
+		return tokenProvider.validate(token);
 	}
 }

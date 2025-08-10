@@ -36,25 +36,52 @@
 				$('#admin').hide();
 				
 				$.ajax({
-					url : '/check',
-					type : 'get'
-					data : {token : token},
-					success : function(data){
-						console.log(data);
+					url: '/check',
+					type: 'get',
+					data: { token : token },
+					success: function(data) {
+						if(data.role === 'ROLE_ADMIN') {
+							$('#admin').show();
+						}
 					}
 				})
 			} else {
-				$('#authenticated').show();
-				$('#anonymous').hide();
-				W$('#admin').hide();
+				$('#anonymous').show();
+				$('#authenticated').hide();
+				$('#admin').hide();
 			}
 			
-			$('#logout').click((e)=>{
-				e.prevenDefaulf();
+			$('#logout').click((e) => {
+				e.preventDefault();
 				localStorage.removeItem("token");
-				location.relaod();
+				location.reload();
 			})
+			$('#mypage').click((e) => {
+				e.preventDefault();
+				$.ajax({
+					url: '/mypage',
+					type: 'get',
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+					},
+					success: function(data) {
+						$('body').html(data);
+					}
+				})
+			});
+			$('#admin').click((e) => {
+					e.preventDefault();
+					$.ajax({
+						url: '/admin',
+						type: 'get',
+						beforeSend: function(xhr) {
+							xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+						},
+						success: function(data) {
+							$('body').html(data);
+						}
+					})
+				})
 		</script>
-	
 	</body>
 	</html>
