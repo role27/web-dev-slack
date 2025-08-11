@@ -1,7 +1,7 @@
 select * from product WHERE PRODUCT_NAME = '파리 5일 패키지';
 
- SELECT * FROM PRODUCT WHERE PRODUCT_NO = 1;
-
+ SELECT * FROM PRODUCT WHERE PRODUCT_NO = 13;
+DELETE FROM PRODUCT WHERE PRODUCT_SEQ = 28;
 INSERT INTO PRODUCT (
     PRODUCT_NAME, PRODUCT_NO, STATUS, product_structure, currency, PRICE_ADULT, PRICE_CHILD, PRICE_INFANT,
     days, datechoice, START_DATE, END_DATE, leader, guide, min_people, short_Desc,

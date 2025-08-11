@@ -44,6 +44,7 @@ CREATE TABLE PRODUCT(
  SET FOREIGN_KEY_CHECKS=1;
 
 select * from product;
+select * from user_info;
 
 DELETE FROM PRODUCT WHERE PRODUCT_SEQ = 5;
 
