@@ -46,7 +46,7 @@ CREATE TABLE PRODUCT(
 select * from product;
 select * from user_info;
 
-DELETE FROM PRODUCT WHERE PRODUCT_SEQ = 5;
+DELETE FROM user_info WHERE USER_NO = 1;
 
 
 CREATE TABLE BOOKING(
