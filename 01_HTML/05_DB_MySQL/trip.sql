@@ -21,7 +21,7 @@ CREATE TABLE PRODUCT(
     PRICE_CHILD INT, -- 아동 가격
     PRICE_INFANT INT, -- 유아 가격
     days VARCHAR(255), -- 예약가능요일 (예: 'mon,tue,wed')
-    datechoice VARCHAR(50), -- 예약일 선택제한
+    datechoiceproduct VARCHAR(50), -- 예약일 선택제한
 	START_DATE DATE, -- 시작일
 	END_DATE DATE, -- 종료일
     leader TEXT, -- 인솔자
